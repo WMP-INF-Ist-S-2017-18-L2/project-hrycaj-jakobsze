@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+        <!--<property name="hibernate.connection.password">CflBz2CAiZ</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:mysql://sql7.freesqldatabase.com:3306/sql7267500</property>-->
+        <!--<property name="hibernate.connection.username">sql7267500</property>-->
+        <!--<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.password">rM1G8LHDQwjXSw4o</property>
+        <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/cjay2k?useSSL=false</property>
+        <property name="hibernate.connection.username">cjay2k</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">true</property>
+
+        <property name="hibernate.connection.CharSet">utf8</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+
+        <!--<property name="hbm2ddl.auto">update</property>-->
+
+        <mapping class="com.sklep.baza.Adresy"/>
+        <mapping class="com.sklep.baza.Urzytkownicy"/>
+        <mapping class="com.sklep.baza.Kraje"/>
+        <mapping class="com.sklep.baza.Zamowienia"/>
+        <mapping class="com.sklep.baza.Produkty"/>
+        <mapping class="com.sklep.baza.Zamowienia_Produkty"/>
+        <mapping class="com.sklep.baza.Zdjecia_Produktow"/>
+        <mapping class="com.sklep.baza.Kategorie"/>
+
+    </session-factory>
+</hibernate-configuration>
