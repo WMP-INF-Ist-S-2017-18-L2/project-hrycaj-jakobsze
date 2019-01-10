@@ -12,7 +12,7 @@ public class Zdjecia_Produktow {
     private int id_zdjecia;
 
     @ManyToOne
-    @JoinColumn(name="id_produktu", nullable=false)
+    @JoinColumn(name = "id_produktu", nullable = false)
     private Produkty id_produktu;
 
     @Column(name = "sciezka")
@@ -23,7 +23,6 @@ public class Zdjecia_Produktow {
 
     @Column(name = "alt")
     private String alt;
-
 
     public Zdjecia_Produktow(Produkty id_produktu, String sciezka, String sciezka_miniatury, String alt) {
         this.id_produktu = id_produktu;

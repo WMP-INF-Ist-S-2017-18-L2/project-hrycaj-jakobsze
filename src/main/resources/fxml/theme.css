@@ -4,7 +4,9 @@
     -fx-dialog: #3b414f;
     -fx-primarytext: #B2B2B2;
     -fx-red: #ff0800;
+    -fx-green: #00FF00;
 }
+
 .root {
     -fx-background-color: -fx-primary;
 }
@@ -13,40 +15,45 @@
     -fx-background-color: -fx-dialog;
 }
 
-.glyph-icon{
+.glyph-icon {
     -fx-fill: -fx-primarytext;
 }
 
-.button{
+.button {
     -fx-text-fill: -fx-primarytext;
 }
 
 /*Login Screen*/
 
-.login-button{
+.login-button {
     -fx-border-color: -fx-secondary;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
 
-.login-button:hover{
+.login-button:hover {
     -fx-border-color: -fx-secondary;
     -fx-background-color: -fx-secondary;
     -fx-text-fill: -fx-primary;
 }
 
-.text-field{
+.text-field {
     -fx-text-fill: -fx-primarytext;
     -fx-font-size: 13pt;
     -jfx-focus-color: -fx-secondary;
 }
 
-.wrong-pass{
+.wrong, .wrong > .jfx-text-field {
     -jfx-unfocus-color: -fx-red;
     -jfx-focus-color: -fx-red;
 }
 
-.search-button{
+.correct, .correct > .jfx-text-field {
+    -jfx-unfocus-color: -fx-green;
+    -jfx-focus-color: -fx-green;
+}
+
+.search-button {
     -fx-background-color: orange;
     -fx-text-fill: white;
     -fx-font-weight: bold;
@@ -56,17 +63,26 @@
     -fx-background-radius: 2px;
 }
 
-.search-bar{
+.search-bar {
     -fx-border-color: -fx-dialog;
 }
 
+.exclamation-circle {
+    -fx-fill: -fx-red;
+}
+
 /*.combo-box-base {*/
-    /*-fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; !* 4 8 4 8 *!*/
-    /*-fx-text-fill: white;*/
-    /*-fx-alignment: CENTER;*/
-    /*-fx-content-display: LEFT;*/
+/*-fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; !* 4 8 4 8 *!*/
+/*-fx-text-fill: white;*/
+/*-fx-alignment: CENTER;*/
+/*-fx-content-display: LEFT;*/
 /*}*/
 
-.combo-box > .cell, .search-bar{
+/*.jfx-date-picker > .jfx-text-field {*/
+/*-jfx-unfocus-color: -fx-red;*/
+/*-jfx-focus-color: -fx-red;*/
+/*}*/
+
+.combo-box > .cell, .search-bar {
     -fx-text-fill: white;
 }

@@ -14,7 +14,7 @@ public class Kraje {
     private int id_kraju;
 
     @NonNull
-    @Column(name = "nazwa", nullable=false)
+    @Column(name = "nazwa", nullable = false)
     private String nazwa;
 
     public Kraje(String nazwa) {

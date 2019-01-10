@@ -14,7 +14,7 @@ public class Kategorie {
     private int id_kategorii;
 
     @NonNull
-    @Column(name = "nazwa", nullable=false)
+    @Column(name = "nazwa", nullable = false)
     private String nazwa;
 
     public Kategorie(String nazwa) {

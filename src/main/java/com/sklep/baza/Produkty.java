@@ -16,7 +16,7 @@ public class Produkty {
     private int id_produktu;
 
     @NonNull
-    @Column(name = "nazwa", nullable=false)
+    @Column(name = "nazwa", nullable = false)
     private String nazwa;
 
     @Type(type = "text")
@@ -24,17 +24,17 @@ public class Produkty {
     private String opis;
 
     @NonNull
-    @Column(name = "cena", nullable=false, columnDefinition="Decimal(13,2)")
+    @Column(name = "cena", nullable = false, columnDefinition = "Decimal(13,2)")
     private double cena;
 
     @NonNull
-    @Column(name = "dostepna_ilosc", nullable=false)
+    @Column(name = "dostepna_ilosc", nullable = false)
     private int dostepna_ilosc;
 
-    @ManyToMany(targetEntity = Kategorie.class, cascade = { CascadeType.ALL })
+    @ManyToMany(targetEntity = Kategorie.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "kategorie_produkty",
-            joinColumns = { @JoinColumn(name = "id_produktu") },
-            inverseJoinColumns = { @JoinColumn(name = "id_kategorii") })
+            joinColumns = {@JoinColumn(name = "id_produktu")},
+            inverseJoinColumns = {@JoinColumn(name = "id_kategorii")})
     private Set<Kategorie> items;
 
     public Produkty(String nazwa, String opis, double cena, int dostepna_ilosc, Set<Kategorie> items) {

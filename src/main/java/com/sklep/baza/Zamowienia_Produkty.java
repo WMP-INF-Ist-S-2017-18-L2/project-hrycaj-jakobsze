@@ -14,19 +14,19 @@ public class Zamowienia_Produkty {
     private int id_zamowienia_produkty;
 
     @ManyToOne
-    @JoinColumn(name="id_zamowienia", nullable=false)
+    @JoinColumn(name = "id_zamowienia", nullable = false)
     private Zamowienia id_zamowienia;
 
     @ManyToOne
-    @JoinColumn(name="id_produktu", nullable=false)
+    @JoinColumn(name = "id_produktu", nullable = false)
     private Produkty id_produktu;
 
     @NonNull
-    @Column(name = "ilosc", nullable=false)
+    @Column(name = "ilosc", nullable = false)
     private int ilosc;
 
     @NonNull
-    @Column(name = "cena_calkowita", nullable=false, columnDefinition="Decimal(13,2)")
+    @Column(name = "cena_calkowita", nullable = false, columnDefinition = "Decimal(13,2)")
     private double cena_calkowita;
 
     public Zamowienia_Produkty(Zamowienia id_zamowienia, Produkty id_produktu, int ilosc, double cena_calkowita) {

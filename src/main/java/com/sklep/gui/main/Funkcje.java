@@ -18,7 +18,7 @@ public class Funkcje {
         try {
             Parent parent = FXMLLoader.load(Funkcje.class.getResource("/fxml/logowanie.fxml"));
             Stage stage = new Stage(StageStyle.UNDECORATED);
-            stage.setTitle("Logowanie");
+            stage.setTitle("Sklep logowanie");
             stage.setScene(new Scene(parent));
             stage.show();
 
@@ -52,19 +52,6 @@ public class Funkcje {
             System.out.println(ex);
         }
     }
-
-    /*public static void loadDialog(){
-        try {
-            Parent parent = FXMLLoader.load(Funkcje.class.getResource("/fxml/dialog.fxml"));
-            Stage stage = new Stage(StageStyle.UNDECORATED);
-            stage.setTitle("Dialog");
-            stage.setScene(new Scene(parent));
-            stage.show();
-
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-    }*/
 
     public static String hex(String haslo) {
         MessageDigest md = null;

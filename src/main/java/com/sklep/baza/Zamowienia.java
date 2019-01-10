@@ -14,11 +14,11 @@ public class Zamowienia {
     private int id_zamowienia;
 
     @NonNull
-    @Column(name = "status", nullable=false)
+    @Column(name = "status", nullable = false)
     private String status;
 
     @ManyToOne
-    @JoinColumn(name="id_urzytkownika", nullable=false)
+    @JoinColumn(name = "id_urzytkownika", nullable = false)
     private Urzytkownicy id_urzytkownika;
 
     public Zamowienia(String status, Urzytkownicy id_urzytkownika) {

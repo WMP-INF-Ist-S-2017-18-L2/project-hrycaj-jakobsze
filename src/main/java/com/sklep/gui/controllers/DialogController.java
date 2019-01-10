@@ -35,8 +35,8 @@ public class DialogController implements Initializable {
 
     @FXML
     private void onMousePressed(MouseEvent event) {
-        xOffSet=event.getSceneX();
-        yOffSet=event.getSceneY();
+        xOffSet = event.getSceneX();
+        yOffSet = event.getSceneY();
     }
 
     @FXML
@@ -57,15 +57,15 @@ public class DialogController implements Initializable {
         closeStage();
     }
 
-    private void setDialogMainLabel(String tekst){
+    private void setDialogMainLabel(String tekst) {
         dialogMainLabel.setText(tekst);
     }
 
-    private void setDialogBottomLabel(String tekst){
+    private void setDialogBottomLabel(String tekst) {
         dialogBottomLabel.setText(tekst);
     }
 
-    private void setDialogButton(String tekst){
+    private void setDialogButton(String tekst) {
         dialogButton.setText(tekst);
     }
 

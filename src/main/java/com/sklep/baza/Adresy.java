@@ -15,27 +15,27 @@ public class Adresy {
     private int id_adresu;
 
     @NonNull
-    @Column(name = "ulica", nullable=false)
+    @Column(name = "ulica", nullable = false)
     private String ulica;
 
     @NonNull
-    @Column(name = "nr_domu", nullable=false, length = 5)
+    @Column(name = "nr_domu", nullable = false, length = 5)
     private String nr_domu;
 
     @NonNull
-    @Column(name = "kod_pocztowy", nullable=false, length = 10)
+    @Column(name = "kod_pocztowy", nullable = false, length = 10)
     private String kod_pocztowy;
 
     @NonNull
-    @Column(name = "miasto", nullable=false , length = 100)
+    @Column(name = "miasto", nullable = false, length = 100)
     private String miasto;
 
     @ManyToOne
-    @JoinColumn(name="id_urzytkownika", nullable=false)
+    @JoinColumn(name = "id_urzytkownika", nullable = false)
     private Urzytkownicy id_urzytkownika;
 
     @ManyToOne
-    @JoinColumn(name="id_kraju", nullable=false)
+    @JoinColumn(name = "id_kraju", nullable = false)
     private Kraje id_kraju;
 
     public Adresy(String ulica, String nr_domu, String kod_pocztowy, String miasto, Urzytkownicy id_urzytkownika, Kraje id_kraju) {

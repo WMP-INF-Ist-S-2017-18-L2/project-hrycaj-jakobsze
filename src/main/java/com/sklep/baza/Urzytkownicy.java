@@ -16,36 +16,36 @@ public class Urzytkownicy {
     private int id_urzytkownika;
 
     @NonNull
-    @Column(name = "email", nullable=false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @NonNull
-    @Column(name = "login", nullable=false, unique = true , length = 30)
+    @Column(name = "login", nullable = false, unique = true, length = 30)
     private String login;
 
     @NonNull
-    @Column(name = "haslo", nullable=false, length = 100)
+    @Column(name = "haslo", nullable = false, length = 100)
     private String haslo;
 
     @NonNull
-    @Column(name = "imie", nullable=false)
+    @Column(name = "imie", nullable = false, length = 30)
     private String imie;
 
     @NonNull
-    @Column(name = "nazwisko", nullable=false)
+    @Column(name = "nazwisko", nullable = false, length = 30)
     private String nazwisko;
 
     @NonNull
-    @Column(name = "Admin", nullable=false)
+    @Column(name = "Admin", nullable = false)
     private boolean admin;
 
     @NonNull
     @Type(type = "date")
-    @Column(name = "data_urodzenia", nullable=false)
+    @Column(name = "data_urodzenia", nullable = false)
     private Date data_urodzenia;
 
     @NonNull
-    @Column(name = "nr_telefonu", nullable=false)
+    @Column(name = "nr_telefonu", nullable = false, length = 15)
     private String nr_telefonu;
 
     public Urzytkownicy(String email, String login, String haslo, String imie, String nazwisko, boolean admin, Date data_urodzenia, String nr_telefonu) {

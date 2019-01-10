@@ -5,15 +5,15 @@
 
     <groupId>com.sklep</groupId>
     <artifactId>sklep</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
     <name>Sklep</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Aplikacja sklepu internetowego</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>com.sklep.gui.main.Main</mainClass>
+        <mainClass>com.sklep.gui.main.Test</mainClass>
     </properties>
 
     <parent>
@@ -90,7 +90,11 @@
             <artifactId>fontawesomefx-fontawesome</artifactId>
             <version>4.7.0-9.1.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.6</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -119,7 +123,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.sklep.gui.main.Main</mainClass>
+                    <mainClass>com.sklep.gui.main.Test</mainClass>
                 </configuration>
             </plugin>
         </plugins>
