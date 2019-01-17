@@ -9,19 +9,19 @@
 5. Autorzy
 
 ###  1. Opis działania
-    Obsługa panelu użytkownika jest prosta i czytelna dzięki czemu jest przystępna dla większego grona konsumentów.
+   Obsługa panelu użytkownika jest prosta i czytelna dzięki czemu jest przystępna dla większego grona konsumentów.
 
 ![obrazek 1](https://i.imgur.com/GeuP3lC.png) 
 
 
 
 ### 2. Zakres funkcjonalności
-    Aplikacja posiada system rejestracji rozpoznawania zalogowanych użytkowników, co za tym idzie bez stworzonego konta nie jest możliwe użytkowanie z niej. Rejestracja jest zabezpieczona, przez co nie jest możliwe np. uzupełnienie numeru telefonu literami lub ciągiem liczb mniejszych od 9, również wszystkie inne pola są zabezpieczone. Informacje o użytkownikach są szyfrowane oraz zapisywane w bazie danych co utrudnia wkradnięcie się do bazy i wyciek informacji o użytkownikach. Natomiast jako administratorzy możemy przeglądać zamówienia klientów oraz dodawać nowe przedmioty do internetowej oferty.
+   Aplikacja posiada system rejestracji rozpoznawania zalogowanych użytkowników, co za tym idzie bez stworzonego konta nie jest możliwe użytkowanie z niej. Rejestracja jest zabezpieczona, przez co nie jest możliwe np. uzupełnienie numeru telefonu literami lub ciągiem liczb mniejszych od 9, również wszystkie inne pola są zabezpieczone. Informacje o użytkownikach są szyfrowane oraz zapisywane w bazie danych co utrudnia wkradnięcie się do bazy i wyciek informacji o użytkownikach. Natomiast jako administratorzy możemy przeglądać zamówienia klientów oraz dodawać nowe przedmioty do internetowej oferty.
 
 ![obrazek 2](https://i.imgur.com/ait44MO.png) 
 
  ### 3. Przykłady użycia
-    Program może być wspaniałym dodatkiem dla pomniejszych lub dopiero zaczynających przedsiębiorców w dziedzinie handlu, może ułatwić oraz zmniejszyć potrzebną ilość pracy oraz czasu prowadzenie spisu zamówień w formie np. dokumentów pisemnych, nawet jeśli nie będzie w stanie zastąpić ich całkowicie, w pewnym stopniu ułatwi i usprawni pracę.
+   Program może być wspaniałym dodatkiem dla pomniejszych lub dopiero zaczynających przedsiębiorców w dziedzinie handlu, może ułatwić oraz zmniejszyć potrzebną ilość pracy oraz czasu prowadzenie spisu zamówień w formie np. dokumentów pisemnych, nawet jeśli nie będzie w stanie zastąpić ich całkowicie, w pewnym stopniu ułatwi i usprawni pracę.
    
    ### 4. Sposób użytkowania
 *	po uruchomieniu programu musimy się zalogować, używając hasła i loginu
