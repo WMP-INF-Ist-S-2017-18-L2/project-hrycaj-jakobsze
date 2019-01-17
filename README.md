@@ -1,5 +1,5 @@
 # Sklep
-    Aplikacja pomagająca w prowadzeniu sklepu internetowego. Dzięki aplikacji możemy składać zamówienia na towary ułatwi dystrybucję towarami przy niewielkim nakładzie pracy. Ogólnym założeniem jest sprawne i wygodne przekazanie informacji pomiędzy sprzedającym a klientem.
+   Aplikacja pomagająca w prowadzeniu sklepu internetowego. Dzięki aplikacji możemy składać zamówienia na towary ułatwi dystrybucję towarami przy niewielkim nakładzie pracy. Ogólnym założeniem jest sprawne i wygodne przekazanie informacji pomiędzy sprzedającym a klientem.
 
 ## Spis treści
 1. Opis działania
