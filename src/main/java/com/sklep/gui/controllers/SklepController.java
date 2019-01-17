@@ -135,6 +135,11 @@ public class SklepController implements Initializable {
         });
         t.start();
 
+/*        sklepRootAnchorPane.addEventHandler(MouseEvent.MOUSE_PRESSED, mouseEvent -> {
+            transition.setRate(-1);
+            transition.play();
+            hamburgerMenu.visibleProperty().setValue(false);
+        });*/
         sklepRootAnchorPane.addEventFilter(MouseEvent.ANY, mouseEvent -> {
             if (!listKoszyk.isVisible()) {
                 try {
@@ -149,8 +154,7 @@ public class SklepController implements Initializable {
                     listKoszyk.setCellFactory(ListView -> new KoszykCell());
                     badge1.setText(String.valueOf(listaProdoktowWKoszyku.size()));
 
-                } catch (NullPointerException e) {
-                }
+                } catch (NullPointerException e) {}
             }
         });
 

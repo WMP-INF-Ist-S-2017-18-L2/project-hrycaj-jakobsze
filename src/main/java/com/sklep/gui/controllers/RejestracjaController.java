@@ -442,6 +442,7 @@ public class RejestracjaController implements Initializable {
                             //dialogMainLabel.setText("Rejestracja przebiegła pomyślnie");
                             //dialogBottomLabel.setText("Możesz się teraz zalogować.");
                             rejestracjaDialogAnchorPane.visibleProperty().setValue(true);
+                            spiner.visibleProperty().setValue(false);
                         });
 
                     } else {

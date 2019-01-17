@@ -50,7 +50,7 @@ public class KoszykCell extends JFXListCell<Produkty_i_Zdjęcia> {
             }
 
             if (!item.getSciezka_miniatury().isBlank()) {
-                img = new Image(item.getSciezka_miniatury(), 155, 155, false, false);
+                img = new Image(item.getSciezka_miniatury(), 155, 155, true, false);
             } else {
                 img = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png", 155, 155, false, false);
             }
