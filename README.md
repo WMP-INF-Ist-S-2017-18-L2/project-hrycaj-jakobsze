@@ -38,6 +38,6 @@ każde z okienek ma inne zabezpieczenie dostosowane do swojej funkcji:
 - Po stworzeniu konta i zalogowaniu możemy już swobodnie przeglądać oferty sklepu oraz składać zamówienia na produkty.
 
 ### 5.  Autorzy
-wykonawcami projektu są:
+Wykonawcami projektu są:
 Adrian Hrycaj i Hubert Jakobsze
          
