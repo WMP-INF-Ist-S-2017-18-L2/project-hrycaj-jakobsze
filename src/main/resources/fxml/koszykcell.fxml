@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="cellAnchor" prefHeight="165.0" prefWidth="706.0"
+            xmlns="http://javafx.com/javafx/11.0.1">
+    <children>
+        <Label fx:id="cellNazwa" layoutX="204.0" layoutY="4.0" prefHeight="48.0" prefWidth="488.0" text="Nazwa"
+               AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="cellCena" layoutX="204.0" layoutY="64.0" prefHeight="48.0" prefWidth="414.0" text="Cena"
+               AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="64.0"/>
+        <ImageView fx:id="cellImageView" fitHeight="155.0" fitWidth="155.0" layoutX="14.0" layoutY="6.0"
+                   pickOnBounds="true" preserveRatio="true"/>
+        <Label disable="true" layoutX="204.0" layoutY="133.0" prefHeight="17.0" prefWidth="97.0" text="Dodaj do koszyka"
+               visible="false" AnchorPane.leftAnchor="204.0" AnchorPane.topAnchor="133.0"/>
+        <JFXButton fx:id="deleteButton" layoutX="629.0" layoutY="52.0" prefHeight="48.0" prefWidth="43.0" text=""
+                   AnchorPane.rightAnchor="17.0">
+            <graphic>
+                <FontAwesomeIconView fill="#3c3333" glyphName="TIMES" size="55.0"/>
+            </graphic>
+        </JFXButton>
+    </children>
+</AnchorPane>

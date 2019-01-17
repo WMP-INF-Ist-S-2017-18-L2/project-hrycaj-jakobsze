@@ -71,18 +71,41 @@
     -fx-fill: -fx-red;
 }
 
-/*.combo-box-base {*/
-/*-fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; !* 4 8 4 8 *!*/
-/*-fx-text-fill: white;*/
-/*-fx-alignment: CENTER;*/
-/*-fx-content-display: LEFT;*/
-/*}*/
-
-/*.jfx-date-picker > .jfx-text-field {*/
-/*-jfx-unfocus-color: -fx-red;*/
-/*-jfx-focus-color: -fx-red;*/
-/*}*/
-
 .combo-box > .cell, .search-bar {
     -fx-text-fill: white;
+}
+
+.jfx-hamburger-icon {
+    -fx-spacing: 8;
+}
+
+.jfx-hamburger StackPane {
+    -fx-pref-width: 40px;
+    -fx-pref-height: 6px;
+    -fx-background-color: -fx-primarytext;
+}
+
+.icons-badge .badge-pane {
+    -fx-background-color: #ff4081;
+    -fx-background-radius: 23;
+    -fx-pref-width: 23;
+    -fx-pref-height: 23;
+    -fx-alignment: center;
+}
+
+.icons-badge Label {
+    -fx-font-weight: BOLD;
+    -fx-font-size: 14.0px;
+    -fx-text-fill: WHITE;
+}
+
+.cell-button {
+    -fx-background-color: #ca1b5d;
+    -fx-text-fill: white;
+}
+
+.back-arrow {
+    -fx-background-color: -fx-primary;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 3, 2;
 }

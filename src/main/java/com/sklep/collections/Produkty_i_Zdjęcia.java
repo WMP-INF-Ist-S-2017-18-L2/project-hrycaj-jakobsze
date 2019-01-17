@@ -2,17 +2,27 @@ package com.sklep.collections;
 
 public class Produkty_i_Zdjęcia {
 
+    private int id_produktu;
     private String nazwa;
     private double cena;
     private String sciezka_miniatury;
 
-    public Produkty_i_Zdjęcia(String nazwa, double cena, String sciezka_miniatury) {
+    public Produkty_i_Zdjęcia(int id_produktu, String nazwa, double cena, String sciezka_miniatury) {
+        this.id_produktu = id_produktu;
         this.nazwa = nazwa;
         this.cena = cena;
         this.sciezka_miniatury = sciezka_miniatury;
     }
 
     public Produkty_i_Zdjęcia() {
+    }
+
+    public int getId_produktu() {
+        return id_produktu;
+    }
+
+    public void setId_produktu(int id_produktu) {
+        this.id_produktu = id_produktu;
     }
 
     public String getNazwa() {

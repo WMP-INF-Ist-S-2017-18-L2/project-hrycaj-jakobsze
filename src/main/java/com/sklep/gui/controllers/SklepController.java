@@ -1,6 +1,7 @@
 package com.sklep.gui.controllers;
 
 import com.jfoenix.controls.*;
+import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
 import com.sklep.collections.Produkty_i_Zdjęcia;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Platform;
@@ -9,31 +10,26 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import org.hibernate.Session;
 
 import javax.persistence.TypedQuery;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class SklepController implements Initializable {
 
-
+    public static ObservableList<Produkty_i_Zdjęcia> listaProdoktowWKoszyku;
     private double xOffSet = 0;
     private double yOffSet = 0;
     private boolean isMaximized = false;
-
     @FXML
     private JFXButton searchButton;
     @FXML
@@ -44,19 +40,46 @@ public class SklepController implements Initializable {
     private AnchorPane sklepRootAnchorPane;
     @FXML
     private FontAwesomeIconView gearIcon;
-    @FXML
-    private FontAwesomeIconView chartIcon;
+    public static List<Produkty_i_Zdjęcia> produktyArrayList = new ArrayList<>();
     @FXML
     private JFXListView<Produkty_i_Zdjęcia> list;
     @FXML
     private JFXListView<String> kategorieList;
     @FXML
     private JFXSpinner spinner;
-
+    @FXML
+    public JFXBadge badge1;
     private double oldX = 0, oldY = 0;
+    @FXML
+    private FontAwesomeIconView closeKoszykMark;
+    @FXML
+    private JFXHamburger hamburger;
+    private JFXSnackbar snackbar;
+    @FXML
+    private JFXListView<Produkty_i_Zdjęcia> listKoszyk;
+
+    public static void dodajDoKoszyka(Produkty_i_Zdjęcia item) {
+        produktyArrayList.add(item);
+        listaProdoktowWKoszyku = FXCollections.observableArrayList(produktyArrayList);
+    }
+
+    public static void usunZKoszyka(Produkty_i_Zdjęcia item) {
+        produktyArrayList.remove(item);
+        listaProdoktowWKoszyku = FXCollections.observableArrayList(produktyArrayList);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        snackbar = new JFXSnackbar(sklepRootAnchorPane);
+        snackbar.setPrefWidth(300);
+
+        HamburgerBasicCloseTransition transition = new HamburgerBasicCloseTransition(hamburger);
+        transition.setRate(-1);
+        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+            transition.setRate(transition.getRate() * -1);
+            transition.play();
+        });
 
         spinner.visibleProperty().setValue(true);
         Thread t = new Thread(() -> {
@@ -77,10 +100,12 @@ public class SklepController implements Initializable {
                 Platform.runLater(() -> kategorieBar.getSelectionModel().selectFirst());
 
                 TypedQuery<Produkty_i_Zdjęcia> start;
-                start = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z where p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
+                start = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.id_produktu, p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z where p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
                 List<Produkty_i_Zdjęcia> produkty = start.getResultList();
 
                 Platform.runLater(() -> wyswietl(produkty));
+
+
             } catch (Exception e) {
                 System.out.println("Wystąpił wyjątek. " + e.getMessage());
                 e.printStackTrace();
@@ -92,6 +117,25 @@ public class SklepController implements Initializable {
             }
         });
         t.start();
+
+        sklepRootAnchorPane.addEventFilter(MouseEvent.ANY, mouseEvent -> {
+            if (!listKoszyk.isVisible()) {
+                try {
+                    badge1.setText(String.valueOf(listaProdoktowWKoszyku.size()));
+                    //listKoszyk.visibleProperty().setValue(true);
+                } catch (NullPointerException e) {
+                }
+            } else {
+                try {
+                    badge1.setText(String.valueOf(listaProdoktowWKoszyku.size()));
+                    listKoszyk.setItems(listaProdoktowWKoszyku);
+                    listKoszyk.setCellFactory(ListView -> new KoszykCell());
+                    badge1.setText(String.valueOf(listaProdoktowWKoszyku.size()));
+
+                } catch (NullPointerException e) {
+                }
+            }
+        });
     }
 
     @FXML
@@ -174,10 +218,10 @@ public class SklepController implements Initializable {
                 TypedQuery<Produkty_i_Zdjęcia> query;
                 if (!searchBar.getText().equals("")) {
                     if (kategorieBar.getSelectionModel().getSelectedIndex() == 0) {
-                        query = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z where LOWER(p.nazwa) like :tekst and p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
+                        query = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.id_produktu, p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z where LOWER(p.nazwa) like :tekst and p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
                         query.setParameter("tekst", "%" + searchBar.getText().toLowerCase() + "%");
                     } else {
-                        query = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z inner join p.items i where i.nazwa LIKE :nazwa_kat and LOWER(p.nazwa) like :tekst and p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
+                        query = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.id_produktu, p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z inner join p.items i where i.nazwa LIKE :nazwa_kat and LOWER(p.nazwa) like :tekst and p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
                         query.setParameter("nazwa_kat", kategorieBar.getSelectionModel().getSelectedItem());
                         query.setParameter("tekst", "%" + searchBar.getText().toLowerCase() + "%");
                     }
@@ -201,41 +245,10 @@ public class SklepController implements Initializable {
 
     private void wyswietl(List<Produkty_i_Zdjęcia> produkty) {
 
-        Thread t = new Thread(() -> {
-            ObservableList<Produkty_i_Zdjęcia> listaProdoktow = FXCollections.observableArrayList(produkty);
+        ObservableList<Produkty_i_Zdjęcia> listaProdoktow = FXCollections.observableArrayList(produkty);
 
-            list.setCellFactory(new Callback<ListView<Produkty_i_Zdjęcia>, ListCell<Produkty_i_Zdjęcia>>() {
-                @Override
-                public ListCell<Produkty_i_Zdjęcia> call(ListView<Produkty_i_Zdjęcia> arg0) {
-                    JFXListCell<Produkty_i_Zdjęcia> cell = new JFXListCell<Produkty_i_Zdjęcia>() {
-                        @Override
-                        protected void updateItem(Produkty_i_Zdjęcia item, boolean empty) {
-                            Image img;
-                            super.updateItem(item, empty);
-                            if (item != null) {
-
-                                if (!item.getSciezka_miniatury().isBlank()) {
-                                    img = new Image(item.getSciezka_miniatury(), 155, 155, false, false);
-                                } else {
-                                    img = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png", 155, 155, false, false);
-                                }
-
-                                ImageView imageView = new ImageView(img);
-
-
-                                setGraphic(imageView);
-
-                                setText(item.getNazwa());
-                            }
-                        }
-                    };
-                    return cell;
-                }
-            });
-            Platform.runLater(() -> list.setItems(listaProdoktow));
-
-        });
-        t.start();
+        list.setItems(listaProdoktow);
+        list.setCellFactory(ListView -> new ListCell());
     }
 
     @FXML
@@ -248,7 +261,7 @@ public class SklepController implements Initializable {
             //Get Session
             Session session = Sesja.sessionFactory.openSession();
             try {
-                TypedQuery<Produkty_i_Zdjęcia> query = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z inner join p.items i where i.nazwa like :nazwa and p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
+                TypedQuery<Produkty_i_Zdjęcia> query = session.createQuery("select new com.sklep.collections.Produkty_i_Zdjęcia(p.id_produktu, p.nazwa, p.cena, z.sciezka_miniatury) from Produkty p, Zdjecia_Produktow z inner join p.items i where i.nazwa like :nazwa and p.id_produktu = z.id_produktu.id_produktu", Produkty_i_Zdjęcia.class);
                 query.setParameter("nazwa", kategorieList.getSelectionModel().getSelectedItem());
 
                 List<Produkty_i_Zdjęcia> produkty = query.getResultList();
@@ -266,5 +279,27 @@ public class SklepController implements Initializable {
             }
         });
         t.start();
+    }
+
+    @FXML
+    void handleKoszykAction(MouseEvent event) {
+
+        listKoszyk.setItems(listaProdoktowWKoszyku);
+        listKoszyk.setCellFactory(ListView -> new KoszykCell());
+
+        listKoszyk.visibleProperty().setValue(true);
+        closeKoszykMark.visibleProperty().setValue(true);
+    }
+
+    @FXML
+    private void list(MouseEvent event) {
+
+
+    }
+
+    @FXML
+    void closeKoszykMarkClicked(MouseEvent event) {
+        listKoszyk.visibleProperty().setValue(false);
+        closeKoszykMark.visibleProperty().setValue(false);
     }
 }

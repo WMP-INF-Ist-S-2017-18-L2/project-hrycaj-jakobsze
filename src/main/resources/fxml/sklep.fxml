@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXListView?>
-<?import com.jfoenix.controls.JFXSpinner?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.layout.*?>
 <?import java.lang.String?>
-<?import javafx.scene.layout.AnchorPane?>
-
 <AnchorPane id="AnchorPane" fx:id="sklepRootAnchorPane" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" prefHeight="720.0" prefWidth="1280.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sklep.gui.controllers.SklepController">
     <children>
         <FontAwesomeIconView glyphName="TIMES" layoutX="1258.0" layoutY="19.0" onMouseClicked="#handleCloseMark"
@@ -30,11 +25,29 @@
             <JFXButton fx:id="searchButton" alignment="CENTER" layoutX="729.0" onAction="#searchButtonAction" prefHeight="50.0" prefWidth="115.0" scaleShape="false" styleClass="search-button" text="SZUKAJ" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
-      <FontAwesomeIconView fx:id="gearIcon" glyphName="COG" layoutX="1209.0" layoutY="83.0" size="35" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="53.0" />
-      <FontAwesomeIconView fx:id="chartIcon" glyphName="SHOPPING_BASKET" layoutX="1128.0" layoutY="83.0" size="35" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="53.0" />
-      <JFXListView fx:id="list" layoutX="228.0" layoutY="117.0" prefHeight="550.0" prefWidth="825.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="227.0" AnchorPane.topAnchor="117.0" />
+        <JFXListView fx:id="list" layoutX="228.0" layoutY="117.0" onMouseMoved="#list" prefHeight="550.0"
+                     prefWidth="825.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="228.0"
+                     AnchorPane.rightAnchor="227.0" AnchorPane.topAnchor="117.0"/>
       <JFXListView fx:id="kategorieList" layoutX="22.0" layoutY="117.0" onMouseClicked="#kategorieListHandleMouseClicked" prefHeight="300.0" prefWidth="189.0" AnchorPane.bottomAnchor="303.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="117.0" />
         <JFXSpinner fx:id="spinner" prefHeight="132.0" prefWidth="134.0" visible="false" AnchorPane.bottomAnchor="262.0"
                     AnchorPane.leftAnchor="573.0" AnchorPane.rightAnchor="573.0" AnchorPane.topAnchor="326.0"/>
+        <JFXHamburger fx:id="hamburger" layoutX="1204.0" layoutY="54.0" styleClass="jfx-hamburger-icon"
+                      AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="54.0"/>
+        <JFXBadge fx:id="badge1" layoutX="1107.0" layoutY="44.0" styleClass="icons-badge" text="0"
+                  AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="44.0">
+            <StackPane style="-fx-padding: 10;">
+                <FontAwesomeIconView glyphName="SHOPPING_BASKET" onMouseClicked="#handleKoszykAction" size="35"
+                                     styleClass="icon"/>
+            </StackPane>
+        </JFXBadge>
+        <JFXListView fx:id="listKoszyk" layoutX="228.0" layoutY="117.0" prefHeight="550.0" prefWidth="825.0"
+                     visible="false" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="228.0"
+                     AnchorPane.rightAnchor="227.0" AnchorPane.topAnchor="117.0"/>
+        <FontAwesomeIconView fx:id="closeKoszykMark" fill="#363636" glyphName="ARROW_CIRCLE_LEFT" layoutX="215.0"
+                             layoutY="127.0" onMouseClicked="#closeKoszykMarkClicked" selectionFill="#ff5353"
+                             size="30.0" styleClass="back-arrow" visible="false" AnchorPane.leftAnchor="215.0"
+                             AnchorPane.topAnchor="101.28571510314941"/>
+
+
     </children>
 </AnchorPane>
