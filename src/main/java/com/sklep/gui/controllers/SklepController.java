@@ -14,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -64,6 +65,8 @@ public class SklepController implements Initializable {
     private Text zalogowanyUrzytkownik;
     @FXML
     private AnchorPane nothingFound;
+    @FXML
+    private GridPane hamburgerMenu;
 
     public static void dodajDoKoszyka(Produkty_i_Zdjęcia item) {
         produktyArrayList.add(item);
@@ -86,6 +89,13 @@ public class SklepController implements Initializable {
         hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
             transition.setRate(transition.getRate() * -1);
             transition.play();
+
+            if (transition.getRate() == -1) {
+                hamburgerMenu.visibleProperty().setValue(false);
+            } else {
+                hamburgerMenu.visibleProperty().setValue(true);
+            }
+
         });
 
         spinner.visibleProperty().setValue(true);
@@ -316,5 +326,10 @@ public class SklepController implements Initializable {
     void closeKoszykMarkClicked(MouseEvent event) {
         listKoszyk.visibleProperty().setValue(false);
         closeKoszykMark.visibleProperty().setValue(false);
+    }
+
+    @FXML
+    void zamknijAplikacje(MouseEvent event) {
+        System.exit(0);
     }
 }

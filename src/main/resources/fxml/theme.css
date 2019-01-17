@@ -109,3 +109,9 @@
     -fx-background-insets: 0, 1;
     -fx-background-radius: 3, 2;
 }
+
+.grid-pane {
+    -fx-background-color: -fx-primarytext;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
