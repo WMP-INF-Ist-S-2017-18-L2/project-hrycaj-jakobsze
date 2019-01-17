@@ -29,7 +29,7 @@ każde z okienek ma inne zabezpieczenie dostosowane do swojej funkcji:
 - W imieniu i nazwisku nie można podawać cyfr 
 - adres email musi posiadać prawidłową końcówkę @***.***
 - numer telefonu musi składać się z 9 cyfr
-- kod pocztowy to "***-**"
+- kod pocztowy to "000-00"
 - numer domu nie może być dłuższy niż 5 znaków 
 
 * Po stworzeniu konta i zalogowaniu możemy już swobodnie przeglądać oferty sklepu oraz składać zamówienia na produkty.
