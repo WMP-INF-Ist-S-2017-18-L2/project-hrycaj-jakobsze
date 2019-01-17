@@ -11,7 +11,7 @@ Aplikacja pomagajaca w prowadzeniu sklepu internetowego. Dzięki aplikacji może
 ###  1. Opis działania
 Obsługa panelu użytkownika jest prosta i czytelna dzięki czemu jest przystępna dla większego grona konsumentów.
 
-![obrazek 1](https://s8509.chomikuj.pl/ChomikImage.aspx?e=3cp_Be-7-WqJJcGL4nwWs85FROxh2mMvsZH0cezKbUZmrtDleYMD1LOWuJi-e-T1yCxXJM-nM8gzXD8mjwsLAM6dQQ0idx8T0on3IKug01Q&pv=2) 
+![obrazek 1](https://s8509.chomikuj.pl/ChomikImage.aspx?e=9twPrxQX2Au689CQcB1PnufJp2WecGHK_DgDUMUmla3fYAw5jSWBG9waBoYcQloKCoKirtyIPnUfYaFiR81t0RBamr6UhULuAWGw6Aa76tI&pv=2) 
 
 
 ### 2. Zakres funkcjonalności
@@ -23,7 +23,7 @@ Aplikacja posiada system rejestracji rozpoznawania zalogowanych użytkowników, 
 * po uruchomieniu programu musimy się zalogować, używając hasła i loginu 
 * jeśli nie posiadamy konta, tworzymy je wypełniając formularz.  
 
-![obrazek 2](https://s7022.chomikuj.pl/ChomikImage.aspx?e=HdRaVMIMrF-EPmld8ZjDaslBbZN_u4SNDCifp4yl6bx97Fs7OskJPRmeRZtEtrSsme-sRIrWzbxsGQOutyUrGDVyPGQEoncOjjQYPCLOKE8&pv=2) 
+![obrazek 2](https://s7022.chomikuj.pl/ChomikImage.aspx?e=GekqwnwxbonbJ_hqHB824Xsf5ZjwoUiV59UgrtmkJr-DLfuboLGRGkGD6MTUmyvDbzXIia9fDUsjerIQwzu2Z7kTYQnnlP7ywGhf6cPAv_Q&pv=2) 
 
 każde z okienek ma inne zabezpieczenie dostosowane do swojej funkcji: 
 - W imieniu i nazwisku nie można podawać cyfr 
