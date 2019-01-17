@@ -37,6 +37,7 @@ public class LogowanieController implements Initializable {
     private JFXSpinner spiner;
     @FXML
     private AnchorPane childAnchorPane;
+    public static Urzytkownicy zalogowany;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,6 +92,7 @@ public class LogowanieController implements Initializable {
                         Urzytkownicy urzytkownik = query.getSingleResult();
 
                         if (haslo1.equals(urzytkownik.getHaslo())) {
+                            zalogowany = urzytkownik;
                             Platform.runLater(() -> {
                                 closeStage();
                                 Funkcje.loadSklepMain();
@@ -153,4 +155,5 @@ public class LogowanieController implements Initializable {
         closeStage();
         Funkcje.loadRejestracja();
     }
+
 }

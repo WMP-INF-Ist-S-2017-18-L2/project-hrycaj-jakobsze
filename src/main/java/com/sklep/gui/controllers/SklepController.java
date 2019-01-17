@@ -14,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.hibernate.Session;
@@ -23,6 +24,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.sklep.gui.controllers.LogowanieController.zalogowany;
 
 public class SklepController implements Initializable {
 
@@ -57,6 +60,10 @@ public class SklepController implements Initializable {
     private JFXSnackbar snackbar;
     @FXML
     private JFXListView<Produkty_i_Zdjęcia> listKoszyk;
+    @FXML
+    private Text zalogowanyUrzytkownik;
+    @FXML
+    private AnchorPane nothingFound;
 
     public static void dodajDoKoszyka(Produkty_i_Zdjęcia item) {
         produktyArrayList.add(item);
@@ -136,6 +143,8 @@ public class SklepController implements Initializable {
                 }
             }
         });
+
+        zalogowanyUrzytkownik.setText(zalogowany.getImie() + " " + zalogowany.getNazwisko());
     }
 
     @FXML
@@ -249,6 +258,12 @@ public class SklepController implements Initializable {
 
         list.setItems(listaProdoktow);
         list.setCellFactory(ListView -> new ListCell());
+
+        if (list.getItems().isEmpty()) {
+            nothingFound.visibleProperty().setValue(true);
+        } else {
+            nothingFound.visibleProperty().setValue(false);
+        }
     }
 
     @FXML
